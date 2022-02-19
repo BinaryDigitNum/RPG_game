@@ -23,5 +23,28 @@ namespace RPG_game
             else WriteLine("non-poisonous stinger");
             ResetColor();
         }
+
+        public void Fly()
+        {
+            ForegroundColor = Color;
+            WriteLine($"{Name} is flying around.");
+        }
+
+        // Generate random number between 1 to 100 and make a guess between each methods
+        public override void Fight()
+        {
+            double randomNum = RandomGenerator.Next(1, 101);
+            if (randomNum <= 45)
+            {
+                Fly();
+            }
+            else
+            {
+                AirAttack();
+            }
+
+            ForegroundColor = Color;
+            WriteLine($"{Name} is fighting");
+        }
     }
 }

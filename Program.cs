@@ -10,6 +10,7 @@ namespace RPG_game
     {
         static void Main(string[] args)
         {
+            //This is the main logic of the application
             Game myGame = new Game();
             myGame.Run();
         }

@@ -11,12 +11,21 @@ namespace RPG_game
         protected string Name, TextArt;
         protected int Health;
         protected ConsoleColor Color;
-        public Enemy(string name,int health,ConsoleColor color,string textArt)
+        protected Random RandomGenerator;
+
+        public Enemy(string name, int health, ConsoleColor color, string textArt)
         {
             Name = name;
             Health = health;
             Color = color;
             TextArt = textArt;
+            RandomGenerator = new Random();
+        }
+
+        // base class's virtual method
+        public virtual void Fight()
+        {
+            WriteLine("Fighting...");
         }
 
         public void DisplayInfo()
