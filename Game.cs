@@ -21,10 +21,8 @@ namespace RPG_game
             Console.WriteLine("=== Welcome from RPG game ===");
 
             MrAngry.DisplayInfo();
-            KillerQueen.DisplayInfo();
             MrAngry.Charge();
             KillerQueen.AirAttack();
-
             Console.ReadKey(true);
         }
     }
