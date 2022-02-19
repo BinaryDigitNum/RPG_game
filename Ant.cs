@@ -16,6 +16,14 @@ namespace RPG_game
             ChargeRange = chargeRange;
         }
 
+
+        // Overriding the base class method using Polymorphism
+
+        //public override void DisplayInfo()
+        //{
+        //    WriteLine("Hello");
+        //}
+
         public void Charge()
         {
             ForegroundColor = Color;

@@ -19,7 +19,8 @@ namespace RPG_game
             TextArt = textArt;
         }
 
-        public void DisplayInfo()
+        // base class's virtual method
+        public virtual void DisplayInfo()
         {
             ForegroundColor = Color;
             WriteLine($"---{Name}---");

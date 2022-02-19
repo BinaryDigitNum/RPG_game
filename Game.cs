@@ -3,29 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace RPG_game
 {
     internal class Game
     {
-        private Ant MrAngry;
-        private Bee KillerQueen;
+        private List<Enemy> Enemies;
+
         public Game()
         {
-            MrAngry = new Ant("Mr Angry", 100, ConsoleColor.DarkRed, 4);
-            KillerQueen = new Bee("Killer Queen",150,ConsoleColor.DarkYellow,true);
+            Ant MrAngry = new Ant("Mr Angry", 100, ConsoleColor.DarkRed, 4);
+            Bee KillerQueen = new Bee("Killer Queen",150,ConsoleColor.DarkYellow,true);
+
+
+            // Polymorphism in action !
+            Enemies = new List<Enemy>() { MrAngry,KillerQueen };
         }
 
         public void Run()
         {
-            Console.WriteLine("=== Welcome from RPG game ===");
+            WriteLine("=== Welcome from RPG game ===");
 
-            MrAngry.DisplayInfo();
-            KillerQueen.DisplayInfo();
-            MrAngry.Charge();
-            KillerQueen.AirAttack();
+            foreach(Enemy enemy in Enemies)
+            {
+                enemy.DisplayInfo();
 
-            Console.ReadKey(true);
+                WriteLine("Instance info > ");
+                WriteLine($"What is this instance ? {enemy.GetType()}");
+                WriteLine($"Is this an object ? {enemy is object}");
+                WriteLine($"Is this an enemy? {enemy is Enemy}");
+                WriteLine($"Is this an ant? {enemy is Ant}");
+                WriteLine($"Is this a bee ? {enemy is Bee}");
+
+                if(enemy is Ant)
+                {
+                    Ant ant = enemy as Ant;
+                    ant.Charge();
+                }else if(enemy is Bee)
+                {
+                    Bee bee = enemy as Bee;
+                    bee.AirAttack();
+                }
+            }
+
+
+            WaitForKey();
+        }
+
+        private void WaitForKey()
+        {
+            WriteLine("Press any key .... \n");
+            ReadKey(true);
         }
     }
 }
