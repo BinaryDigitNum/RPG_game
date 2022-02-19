@@ -28,23 +28,24 @@ namespace RPG_game
             foreach(Enemy enemy in Enemies)
             {
                 enemy.DisplayInfo();
+                enemy.Fight();
 
-                WriteLine("Instance info > ");
-                WriteLine($"What is this instance ? {enemy.GetType()}");
-                WriteLine($"Is this an object ? {enemy is object}");
-                WriteLine($"Is this an enemy? {enemy is Enemy}");
-                WriteLine($"Is this an ant? {enemy is Ant}");
-                WriteLine($"Is this a bee ? {enemy is Bee}");
+                //WriteLine("Instance info > ");
+                //WriteLine($"What is this instance ? {enemy.GetType()}");
+                //WriteLine($"Is this an object ? {enemy is object}");
+                //WriteLine($"Is this an enemy? {enemy is Enemy}");
+                //WriteLine($"Is this an ant? {enemy is Ant}");
+                //WriteLine($"Is this a bee ? {enemy is Bee}");
 
-                if(enemy is Ant)
-                {
-                    Ant ant = enemy as Ant;
-                    ant.Charge();
-                }else if(enemy is Bee)
-                {
-                    Bee bee = enemy as Bee;
-                    bee.AirAttack();
-                }
+                //if(enemy is Ant)
+                //{
+                //    Ant ant = enemy as Ant;
+                //    ant.Charge();
+                //}else if(enemy is Bee)
+                //{
+                //    Bee bee = enemy as Bee;
+                //    bee.AirAttack();
+                //}
             }
 
 
