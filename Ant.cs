@@ -7,11 +7,11 @@ using static System.Console;
 
 namespace RPG_game
 {
-    internal class Ant : Enemy
+    internal class Ant : Character
     {
         private double ChargeRange;
         public Ant(string name,int health,ConsoleColor color,double chargeRange)
-            :base(name,health,color,ArtAssets.Ant)
+            :base(name,health,color,ArtAssets.Ant,4)
         {
             ChargeRange = chargeRange;
         }
@@ -30,21 +30,23 @@ namespace RPG_game
             WriteLine($"{Name} is biting.");
         }
 
-        // Generate random number between 1 to 100 and make a guess between each methods
-        public override void Fight()
+        public override void Fight(Character opponent)
         {
-            double randomNum = RandomGenerator.Next(1, 101);
-            if(randomNum <= 75)
+            // generate a random percentage between 0 - 100
+            // 50% hits and takes damage
+            // 50% misses
+            double RandomPercent = RandomGenerator.Next(0, 101);
+            Write($"{Name} is attacking {opponent.Name} and ");
+            if (RandomPercent <= 50)
             {
-                Bite();
+                WriteLine($"hits {Damage} damage to {opponent.Name} ");
+                opponent.TakeDamage(Damage);
             }
             else
             {
-                Charge();
+                WriteLine($"misses");
             }
-            
-            ForegroundColor = Color;
-            WriteLine($"{Name} is fighting");
         }
+
     }
 }

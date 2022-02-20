@@ -8,6 +8,13 @@ namespace RPG_game
 {
     internal static class ArtAssets
     {
+        public static string Player = @"
+                   /
+  o   /
+./|\.%
+_/ \_
+        ";
+
         public static string Ant = @"
  \       /
   \     /  
