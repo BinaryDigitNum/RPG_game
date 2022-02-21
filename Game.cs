@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using static System.Console;
 
 namespace RPG_game
@@ -11,40 +14,34 @@ namespace RPG_game
         private Character CurrentEnemy;
         public Game()
         {
-            // Derived classes of Enemy class
-            Ant MrAngry = new Ant("Mr Angry", 100, ConsoleColor.DarkRed, 4);
-            Bee KillerQueen = new Bee("Killer Queen",150,ConsoleColor.DarkYellow,true);
-
-
-            // Polymorphism in action !
-            // There is an implicit conversion from derived class to base class
-            Enemies = new List<Enemy>() { MrAngry,KillerQueen };
             Ant MrAngry = new Ant("Mr Angry", 10, ConsoleColor.DarkRed, 4);
-            Bee KillerQueen = new Bee("Killer Queen",15,ConsoleColor.DarkYellow,true);
-            CurrentPlayer = new Player("Kevin",20,ConsoleColor.DarkCyan);
+            Bee KillerQueen = new Bee("Killer Queen", 15, ConsoleColor.DarkYellow, true);
+            CurrentPlayer = new Player("Kevin", 20, ConsoleColor.DarkCyan);
 
             // Polymorphism in action !
-            Enemies = new List<Character>() { MrAngry,KillerQueen };
+            Enemies = new List<Character>() { MrAngry, KillerQueen };
+        }
+
         public void Run()
         {
             WriteLine("=== Welcome from RPG game ===");
             CurrentEnemy = Enemies[0];
             while (true)
             {
-            Clear();
-            CurrentPlayer.DisplayHealthBar();
-            CurrentEnemy.DisplayHealthBar();
-            WriteLine();
-            WriteLine();
-            CurrentPlayer.Fight(CurrentEnemy);
-            WaitForKey();
+                Clear();
+                CurrentPlayer.DisplayHealthBar();
+                CurrentEnemy.DisplayHealthBar();
+                WriteLine();
+                WriteLine();
+                CurrentPlayer.Fight(CurrentEnemy);
+                WaitForKey();
                 // Round 2
-            Clear();
-            CurrentPlayer.DisplayHealthBar();
-            CurrentEnemy.DisplayHealthBar();
-            CurrentPlayer.Fight(CurrentEnemy);
-            WaitForKey();
-            
+                Clear();
+                CurrentPlayer.DisplayHealthBar();
+                CurrentEnemy.DisplayHealthBar();
+                CurrentPlayer.Fight(CurrentEnemy);
+                WaitForKey();
+
                 // Enemy turn
                 Clear();
 
@@ -52,7 +49,8 @@ namespace RPG_game
                 CurrentEnemy.DisplayHealthBar();
                 CurrentEnemy.Fight(CurrentPlayer);
 
-               WaitForKey();
+                WaitForKey();
+                Clear();
             }
 
         }
