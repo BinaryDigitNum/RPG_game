@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace RPG_game
@@ -13,12 +10,31 @@ namespace RPG_game
 
         public Game()
         {
+            // Derived classes of Enemy class
             Ant MrAngry = new Ant("Mr Angry", 100, ConsoleColor.DarkRed, 4);
             Bee KillerQueen = new Bee("Killer Queen",150,ConsoleColor.DarkYellow,true);
 
 
             // Polymorphism in action !
+            // There is an implicit conversion from derived class to base class
             Enemies = new List<Enemy>() { MrAngry,KillerQueen };
+        }
+
+        public void sayHelloFriend(Enemy enemy)
+        {
+            if(enemy is Ant)
+            {
+            WriteLine("This is an ant.");
+
+            }
+            else if(enemy is Bee)
+            {
+                WriteLine("This is a bee");
+            }
+            else
+            {
+                WriteLine("I am your enemy");
+            }
         }
 
         public void Run()
@@ -46,6 +62,7 @@ namespace RPG_game
                 //    Bee bee = enemy as Bee;
                 //    bee.AirAttack();
                 //}
+                sayHelloFriend(enemy);
             }
 
 
