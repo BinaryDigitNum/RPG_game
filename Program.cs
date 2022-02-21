@@ -8,11 +8,12 @@ namespace RPG_game
 {
     internal class Program
     {
-        static void Main(string[] args)
+        internal static void Main(string[] args)
         {
-            //This is the main logic of the application
+            //This is the main logic of the  application       
             Game myGame = new Game();
             myGame.Run();
         }
     }
+
 }
