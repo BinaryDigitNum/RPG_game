@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using static System.Console;
 namespace RPG_game
 {
-    internal class Bee : Enemy
+    internal class Bee : Character
     {
         private bool HasPoisonousStinger;
         public Bee(string name,int health,ConsoleColor color,bool poisonous)
-            :base(name,health,color,ArtAssets.Bee)
+            :base(name,health,color,ArtAssets.Bee,5)
         {
             HasPoisonousStinger = poisonous;
         }
@@ -30,21 +30,22 @@ namespace RPG_game
             WriteLine($"{Name} is flying around.");
         }
 
-        // Generate random number between 1 to 100 and make a guess between each methods
-        public override void Fight()
+        public override void Fight(Character opponent)
         {
-            double randomNum = RandomGenerator.Next(1, 101);
-            if (randomNum <= 45)
+            // generate a random percentage between 0 - 100
+            // 50% hits and takes damage
+            // 50% misses
+            double RandomPercent = RandomGenerator.Next(0, 101);
+            Write($"{Name} is attacking {opponent.Name} and ");
+            if (RandomPercent <= 50)
             {
-                Fly();
+                WriteLine($"hits {Damage} damage to {opponent.Name} ");
+                opponent.TakeDamage(Damage);
             }
             else
             {
-                AirAttack();
+                WriteLine($"misses");
             }
-
-            ForegroundColor = Color;
-            WriteLine($"{Name} is fighting");
         }
     }
 }
