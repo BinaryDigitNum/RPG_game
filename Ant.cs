@@ -16,7 +16,7 @@ namespace RPG_game
             ChargeRange = chargeRange;
         }
 
-
+        // Action methods for Ant class
         public void Charge()
         {
             ForegroundColor = Color;
