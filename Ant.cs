@@ -10,8 +10,8 @@ namespace RPG_game
     internal class Ant : Character
     {
         private double ChargeRange;
-        public Ant(string name,int health,ConsoleColor color,double chargeRange)
-            :base(name,health,color,ArtAssets.Ant,4)
+        public Ant(string name, int health, ConsoleColor color, double chargeRange)
+            : base(name, health, color, ArtAssets.Ant, 4)
         {
             ChargeRange = chargeRange;
         }

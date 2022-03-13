@@ -35,6 +35,7 @@ namespace RPG_game
                 WriteLine();
                 CurrentPlayer.Fight(CurrentEnemy);
                 WaitForKey();
+
                 // Round 2
                 Clear();
                 CurrentPlayer.DisplayHealthBar();
